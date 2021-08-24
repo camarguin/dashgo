@@ -1,6 +1,7 @@
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Th, Thead, Tr, Td } from "@chakra-ui/react";
-import { RiAddLine } from "react-icons/ri";
+import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Th, Thead, Tr, Td, Text } from "@chakra-ui/react";
+import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import Header from "../../components/Header";
+import Pagination from "../../components/Pagination";
 import Sidebar from "../../components/Sidebar";
 
 export default function UserList() {
@@ -12,8 +13,8 @@ export default function UserList() {
         <Box flex="1" borderRadius={8} bg="gray.800" p="8">
           <Flex mb="8" justify="space-between" align="center">
             <Heading size="lg" fontWeight="normal">Users</Heading>
-            <Button as="a" size="sm" fontSize="small" colorScheme="pink" leftIcon={<Icon as={RiAddLine} />}>
-              New user
+            <Button as="a" size="sm" fontSize="small" colorScheme="pink" leftIcon={<Icon as={RiAddLine} fontSize="20" />}>
+              Add user
             </Button>
           </Flex>
           <Table colorScheme="whiteAlpha">
@@ -24,6 +25,7 @@ export default function UserList() {
                 </Th>
                 <Th>User</Th>
                 <Th>Created at</Th>
+                <Th w="8"></Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -31,9 +33,56 @@ export default function UserList() {
                 <Td px="6">
                   <Checkbox colorScheme="pink" />
                 </Td>
+                <Td>
+                  <Box>
+                    <Text fontWeight="bold">Lucas Gerhardt</Text>
+                    <Text fontSize="sm" color="gray.300">lucasgcamargo@icloud.com</Text>
+                  </Box>
+                </Td>
+                <Td>04 april, 2021</Td>
+                <Td>
+                  <Button as="a" size="sm" fontSize="small" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16" />}>
+                    Edit
+                  </Button>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td px="6">
+                  <Checkbox colorScheme="pink" />
+                </Td>
+                <Td>
+                  <Box>
+                    <Text fontWeight="bold">Lucas Gerhardt</Text>
+                    <Text fontSize="sm" color="gray.300">lucasgcamargo@icloud.com</Text>
+                  </Box>
+                </Td>
+                <Td>04 april, 2021</Td>
+                <Td>
+                  <Button as="a" size="sm" fontSize="small" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16" />}>
+                    Edit
+                  </Button>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td px="6">
+                  <Checkbox colorScheme="pink" />
+                </Td>
+                <Td>
+                  <Box>
+                    <Text fontWeight="bold">Lucas Gerhardt</Text>
+                    <Text fontSize="sm" color="gray.300">lucasgcamargo@icloud.com</Text>
+                  </Box>
+                </Td>
+                <Td>04 april, 2021</Td>
+                <Td>
+                  <Button as="a" size="sm" fontSize="small" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16" />}>
+                    Edit
+                  </Button>
+                </Td>
               </Tr>
             </Tbody>
           </Table>
+          <Pagination />
         </Box>
       </Flex>
     </Box>
