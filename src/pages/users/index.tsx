@@ -1,10 +1,15 @@
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Th, Thead, Tr, Td, Text } from "@chakra-ui/react";
+import Link from 'next/link';
+import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Th, Thead, Tr, Td, Text, useBreakpointValue } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination";
 import Sidebar from "../../components/Sidebar";
 
 export default function UserList() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  })
   return (
     <Box>
       <Header />
@@ -13,24 +18,25 @@ export default function UserList() {
         <Box flex="1" borderRadius={8} bg="gray.800" p="8">
           <Flex mb="8" justify="space-between" align="center">
             <Heading size="lg" fontWeight="normal">Users</Heading>
-            <Button as="a" size="sm" fontSize="small" colorScheme="pink" leftIcon={<Icon as={RiAddLine} fontSize="20" />}>
-              Add user
-            </Button>
+            <Link href="/users/create" passHref>
+              <Button as="a" size="sm" fontSize="small" colorScheme="pink" leftIcon={<Icon as={RiAddLine} fontSize="20" />}>
+                Add user
+              </Button>
+            </Link>
           </Flex>
           <Table colorScheme="whiteAlpha">
             <Thead>
               <Tr>
-                <Th px="6" color="gray.300" width="8">
+                <Th px={["4", "4", "6"]} color="gray.300" width="8">
                   <Checkbox colorScheme="pink" />
                 </Th>
                 <Th>User</Th>
-                <Th>Created at</Th>
-                <Th w="8"></Th>
+                {isWideVersion && <Th>Created at</Th>}
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
@@ -39,15 +45,10 @@ export default function UserList() {
                     <Text fontSize="sm" color="gray.300">lucasgcamargo@icloud.com</Text>
                   </Box>
                 </Td>
-                <Td>04 april, 2021</Td>
-                <Td>
-                  <Button as="a" size="sm" fontSize="small" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16" />}>
-                    Edit
-                  </Button>
-                </Td>
+                {isWideVersion && <Td>04 april, 2021</Td>}
               </Tr>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
@@ -56,15 +57,10 @@ export default function UserList() {
                     <Text fontSize="sm" color="gray.300">lucasgcamargo@icloud.com</Text>
                   </Box>
                 </Td>
-                <Td>04 april, 2021</Td>
-                <Td>
-                  <Button as="a" size="sm" fontSize="small" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16" />}>
-                    Edit
-                  </Button>
-                </Td>
+                {isWideVersion && <Td>04 april, 2021</Td>}
               </Tr>
               <Tr>
-                <Td px="6">
+                <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
                 <Td>
@@ -73,12 +69,7 @@ export default function UserList() {
                     <Text fontSize="sm" color="gray.300">lucasgcamargo@icloud.com</Text>
                   </Box>
                 </Td>
-                <Td>04 april, 2021</Td>
-                <Td>
-                  <Button as="a" size="sm" fontSize="small" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16" />}>
-                    Edit
-                  </Button>
-                </Td>
+                {isWideVersion && <Td>04 april, 2021</Td>}
               </Tr>
             </Tbody>
           </Table>
